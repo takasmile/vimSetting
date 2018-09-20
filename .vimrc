@@ -6,7 +6,7 @@ set softtabstop=2
 set shiftwidth=2
 source $VIMRUNTIME/vimrc_example.vim
 set gfn=Î¢ÈíÑÅºÚ:h12
-colorscheme desert
+" colorscheme desert
 
 set diffexpr=MyDiff()
 function MyDiff()
@@ -54,3 +54,14 @@ endif
 
 "???????????????
 set fencs=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+
+if has("autocmd")
+	  au VimEnter,InsertLeave * silent execute '!echo -ne "\e[1 q"' | redraw!
+		  au InsertEnter,InsertChange *
+			    \ if v:insertmode == 'i' | 
+			    \   silent execute '!echo -ne "\e[5 q"' | redraw! |
+			    \ elseif v:insertmode == 'r' |
+			    \   silent execute '!echo -ne "\e[3 q"' | redraw! |
+			    \ endif
+			  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+			endif
