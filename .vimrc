@@ -5,7 +5,7 @@ set tabstop=2
 set softtabstop=2
 set shiftwidth=2
 source $VIMRUNTIME/vimrc_example.vim
-set gfn=΢���ź�:h12
+set gfn=΢���ź�:h12
 " colorscheme desert
 
 set diffexpr=MyDiff()
@@ -41,7 +41,7 @@ function MyDiff()
     let &shellxquote=l:shxq_sav
   endif
 endfunction
-colorscheme desert
+colorscheme industry
 set nu
 
 set fileencodings=utf-8,chinese
@@ -65,3 +65,37 @@ if has("autocmd")
 			    \ endif
 			  au VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 			endif
+
+
+" iletype off                  " required!
+ 
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+ 
+" let Vundle manage Vundle
+" " required!
+Bundle 'gmarik/vundle'
+Bundle 'mattn/emmet-vim'
+Bundle 'Auto-Pairs'
+Bundle 'php-doc'
+Bundle 'PHPDoc-Script-PDocS'
+let g:user_emmet_expandabbr_key = '<Tab>'
+let g:user_emmet_settings = {'indentation': '    '}
+filetype plugin indent on     " required!
+
+set nowrap
+
+" NERDTree Settings
+" 将f2设置为NERDTree的快捷键
+Plugin 'scrooloose/nerdtree'
+map <F2> :NERDTreeToggle<cr>
+
+let g:NERDTreeDirArrowExpandable = '+'
+let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeWinPos='left'
+let g:NERDTreeSize=30
+let g:NERDTreeShowLineNumbers=1
+let g:NERDTreeHidden=0
+autocmd vimenter * if !argc()|NERDTree|endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+autocmd vimenter * NERDTree</cr></f2>
