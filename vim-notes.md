@@ -4,3 +4,11 @@
 2. shift + v 转到可视模式
 3. shift + g 全选
 4. =
+#### vim中注释及代码折叠
+```
+set fdm indent
+zc zC zo zO
+
+set fdm marker
+zf% zd zf3G
+```
