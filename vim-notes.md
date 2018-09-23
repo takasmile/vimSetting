@@ -12,3 +12,5 @@ zc zC zo zO
 set fdm marker
 zf% zd zf3G
 ```
+#### vim插件管理神器
+Bundle
