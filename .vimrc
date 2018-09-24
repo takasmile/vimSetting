@@ -99,3 +99,10 @@ let g:NERDTreeHidden=0
 autocmd vimenter * if !argc()|NERDTree|endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd vimenter * NERDTree</cr></f2>
+
+" 安装vue高亮插件
+" Plugin 'posva/vim-vue'
+" autocmd Filetype vue syntax sync fromstart
+
+" 插件使用失败，直接设置vue与HTML相同
+autocmd BufRead,BufNewFile *.vue setlocal filetype=vue.html.javascript.css
